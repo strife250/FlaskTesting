@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block contenido %}
+<h1>¡Hola, mundo!</h1>
+<p>Este es un sitio educativo usando Flask. ¡Bienvenido!</p>
+
+<h3>Mensajes recientes:</h3>
+{% if mensajes %}
+    <ul class="list-group">
+        {% for mensaje in mensajes %}
+            <li class="list-group-item">
+                <strong>{{ mensaje.nombre }}:</strong> {{ mensaje.contenido }}
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay mensajes todavía.</p>
+{% endif %}
+{% endblock %}

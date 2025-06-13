@@ -1,0 +1,20 @@
+<!-- TEMPLATE PARA GALERIA -->
+{% extends "base.html" %}
+
+{% block title %}
+Galería de Imágenes{% endblock %}
+
+{% block contenido %}
+<h1>Galería de Imágenes</h1>
+<div class="row">
+    {% for imagen in imagenes %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{{ url_for('static', filename='galeria/' + imagen) }}" class="card-img-top" alt="Imagen de la galería">
+            <div class="card-body">
+                <h5 class="card-title">{{ imagen.split('.')[0] }}</h5>
+                <p class="card-text">Descripción de la imagen.</p>
+                <a href="{{ url_for('static', filename='galeria/' + imagen) }}" class="btn btn-primary" target="_blank">Ver Imagen</a>
+            </div>
+        </div>
+    </div>      
